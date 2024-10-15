@@ -6,8 +6,9 @@ const MAX_AUTO_EXPAND_SIZE = 6;
 
 function shouldAutoExpand(node, level) {
   return (
-    level === 1 ||
-    (node.kind === "tuple" && node.children?.length <= MAX_AUTO_EXPAND_SIZE)
+    level < 10 ||
+    // (node.kind === "tuple" && node.children?.length <= MAX_AUTO_EXPAND_SIZE)
+    (node.children?.length <= MAX_AUTO_EXPAND_SIZE)
   );
 }
 
@@ -79,3 +80,4 @@ function TextItems({ items }) {
     </span>
   ));
 }
+
